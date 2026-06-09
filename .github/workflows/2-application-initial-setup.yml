@@ -65,9 +65,6 @@ jobs:
       - name: Print file
         run: cat octofit-tracker/frontend/package.json
 
-      - name: Search manually
-        run: grep -n '"react": "\^19"' octofit-tracker/frontend/package.json
-
       - name: Check React 19 dependency
         id: check-react-19
         continue-on-error: true
