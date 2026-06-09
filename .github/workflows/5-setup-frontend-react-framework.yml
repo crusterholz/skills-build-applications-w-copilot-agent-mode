@@ -65,7 +65,7 @@ jobs:
         uses: skills/action-keyphrase-checker@v2.0.0
         with:
           text-file: octofit-tracker/frontend/src/components/Activities.tsx
-          keyphrase: "fetchApi<Activity>('activities')"
+          keyphrase: "fetchApi('activities')"
           minimum-occurrences: 1
           case-sensitive: false
 
@@ -75,7 +75,7 @@ jobs:
         uses: skills/action-keyphrase-checker@v2.0.0
         with:
           text-file: octofit-tracker/frontend/src/components/Leaderboard.tsx
-          keyphrase: "fetchApi<LeaderboardEntry>('leaderboard')"
+          keyphrase: "fetchApi('leaderboard')"
           minimum-occurrences: 1
           case-sensitive: false
 
@@ -85,7 +85,7 @@ jobs:
         uses: skills/action-keyphrase-checker@v2.0.0
         with:
           text-file: octofit-tracker/frontend/src/components/Teams.tsx
-          keyphrase: "fetchApi<Team>('teams')"
+          keyphrase: "fetchApi('teams')"
           minimum-occurrences: 1
           case-sensitive: false
 
@@ -95,7 +95,7 @@ jobs:
         uses: skills/action-keyphrase-checker@v2.0.0
         with:
           text-file: octofit-tracker/frontend/src/components/Users.tsx
-          keyphrase: "fetchApi<User>('users')"
+          keyphrase: "fetchApi('users')"
           minimum-occurrences: 1
           case-sensitive: false
 
@@ -105,7 +105,7 @@ jobs:
         uses: skills/action-keyphrase-checker@v2.0.0
         with:
           text-file: octofit-tracker/frontend/src/components/Workouts.tsx
-          keyphrase: "fetchApi<Workout>('workouts')"
+          keyphrase: "fetchApi('workouts')"
           minimum-occurrences: 1
           case-sensitive: false
 
