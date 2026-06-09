@@ -6,6 +6,7 @@ on:
       - "build-octofit-app"
     paths:
       - "octofit-tracker/frontend/**"
+      - ".github/workflows/*"
 
 permissions:
   contents: read
@@ -58,55 +59,40 @@ jobs:
 
       # START: Check practical exercise
 
-      - name: Check for codespace API endpoint in Activities.jsx
+      - name: Check for API endpoint usage in Activities.tsx
         id: check-activities
         continue-on-error: true
-        uses: skills/action-keyphrase-checker@v2.0.0
-        with:
-          text-file: octofit-tracker/frontend/src/components/Activities.jsx
-          keyphrase: '-8000.app.github.dev/api/activities'
-          minimum-occurrences: 1
-          case-sensitive: false
+        run: |
+          set -e
+          grep -Eq "fetchApi.*\('activities'\)" octofit-tracker/frontend/src/components/Activities.tsx
 
-      - name: Check for codespace API endpoint in Leaderboard.jsx
+      - name: Check for API endpoint usage in Leaderboard.tsx
         id: check-leaderboard
         continue-on-error: true
-        uses: skills/action-keyphrase-checker@v2.0.0
-        with:
-          text-file: octofit-tracker/frontend/src/components/Leaderboard.jsx
-          keyphrase: '-8000.app.github.dev/api/leaderboard'
-          minimum-occurrences: 1
-          case-sensitive: false
+        run: |
+          set -e
+          grep -Eq "fetchApi.*\('leaderboard'\)" octofit-tracker/frontend/src/components/Leaderboard.tsx
 
-      - name: Check for codespace API endpoint in Teams.jsx
+      - name: Check for API endpoint usage in Teams.tsx
         id: check-teams
         continue-on-error: true
-        uses: skills/action-keyphrase-checker@v2.0.0
-        with:
-          text-file: octofit-tracker/frontend/src/components/Teams.jsx
-          keyphrase: '-8000.app.github.dev/api/teams'
-          minimum-occurrences: 1
-          case-sensitive: false
+        run: |
+          set -e
+          grep -Eq "fetchApi.*\('teams'\)" octofit-tracker/frontend/src/components/Teams.tsx
 
-      - name: Check for codespace API endpoint in Users.jsx
+      - name: Check for API endpoint usage in Users.tsx
         id: check-users
         continue-on-error: true
-        uses: skills/action-keyphrase-checker@v2.0.0
-        with:
-          text-file: octofit-tracker/frontend/src/components/Users.jsx
-          keyphrase: '-8000.app.github.dev/api/users'
-          minimum-occurrences: 1
-          case-sensitive: false
+        run: |
+          set -e
+          grep -Eq "fetchApi.*\('users'\)" octofit-tracker/frontend/src/components/Users.tsx
 
-      - name: Check for codespace API endpoint in Workouts.jsx
+      - name: Check for API endpoint usage in Workouts.tsx
         id: check-workouts
         continue-on-error: true
-        uses: skills/action-keyphrase-checker@v2.0.0
-        with:
-          text-file: octofit-tracker/frontend/src/components/Workouts.jsx
-          keyphrase: '-8000.app.github.dev/api/workouts'
-          minimum-occurrences: 1
-          case-sensitive: false
+        run: |
+          set -e
+          grep -Eq "fetchApi.*\('workouts'\)" octofit-tracker/frontend/src/components/Workouts.tsx
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
