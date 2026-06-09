@@ -7,6 +7,7 @@ on:
     paths:
       - "octofit-tracker/frontend/package.json"
       - "octofit-tracker/backend/package.json"
+      - ".github/workflows/*"
 
 permissions:
   contents: read
