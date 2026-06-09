@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 import mongoose from 'mongoose';
 import usersRouter from './routes/users';
@@ -8,6 +9,7 @@ import leaderboardRouter from './routes/leaderboard';
 import { databaseConfig } from './config/database';
 
 const app = express();
+app.use(cors());
 const PORT = Number(process.env.PORT) || 8000;
 const HOST = process.env.CODESPACE_NAME ? '0.0.0.0' : 'localhost';
 const CODESPACE_NAME = process.env.CODESPACE_NAME;
