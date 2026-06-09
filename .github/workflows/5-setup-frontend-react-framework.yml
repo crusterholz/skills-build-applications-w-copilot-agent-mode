@@ -64,35 +64,35 @@ jobs:
         continue-on-error: true
         run: |
           set -e
-          grep -Eq "fetchApi[^\n]*\('activities'\)" octofit-tracker/frontend/src/components/Activities.tsx
+          grep -Eq "fetchApi.*\('activities'\)" octofit-tracker/frontend/src/components/Activities.tsx
 
       - name: Check for API endpoint usage in Leaderboard.tsx
         id: check-leaderboard
         continue-on-error: true
         run: |
           set -e
-          grep -Eq "fetchApi[^\n]*\('leaderboard'\)" octofit-tracker/frontend/src/components/Leaderboard.tsx
+          grep -Eq "fetchApi.*\('leaderboard'\)" octofit-tracker/frontend/src/components/Leaderboard.tsx
 
       - name: Check for API endpoint usage in Teams.tsx
         id: check-teams
         continue-on-error: true
         run: |
           set -e
-          grep -Eq "fetchApi[^\n]*\('teams'\)" octofit-tracker/frontend/src/components/Teams.tsx
+          grep -Eq "fetchApi.*\('teams'\)" octofit-tracker/frontend/src/components/Teams.tsx
 
       - name: Check for API endpoint usage in Users.tsx
         id: check-users
         continue-on-error: true
         run: |
           set -e
-          grep -Eq "fetchApi[^\n]*\('users'\)" octofit-tracker/frontend/src/components/Users.tsx
+          grep -Eq "fetchApi.*\('users'\)" octofit-tracker/frontend/src/components/Users.tsx
 
       - name: Check for API endpoint usage in Workouts.tsx
         id: check-workouts
         continue-on-error: true
         run: |
           set -e
-          grep -Eq "fetchApi[^\n]*\('workouts'\)" octofit-tracker/frontend/src/components/Workouts.tsx
+          grep -Eq "fetchApi.*\('workouts'\)" octofit-tracker/frontend/src/components/Workouts.tsx
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
