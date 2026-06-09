@@ -5,6 +5,7 @@ import teamsRouter from './routes/teams';
 import activitiesRouter from './routes/activities';
 import workoutsRouter from './routes/workouts';
 import leaderboardRouter from './routes/leaderboard';
+import { databaseConfig } from './config/database';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 8000;
@@ -13,7 +14,6 @@ const CODESPACE_NAME = process.env.CODESPACE_NAME;
 const API_BASE_URL = CODESPACE_NAME
   ? `https://${CODESPACE_NAME}-8000.app.github.dev`
   : `http://localhost:${PORT}`;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/octofit_db';
 
 app.use(express.json());
 
@@ -32,9 +32,10 @@ app.use('/api/workouts', workoutsRouter);
 app.use('/api/leaderboard', leaderboardRouter);
 
 mongoose
-  .connect(MONGO_URI)
+  .connect(databaseConfig.mongoUri, databaseConfig.mongooseOptions)
   .then(() => {
-    console.log(`Connected to MongoDB at ${MONGO_URI}`);
+    console.log(`Connected to MongoDB at ${databaseConfig.mongoUri}`);
+    console.log(`Using database name: ${databaseConfig.dbName}`);
     app.listen(PORT, HOST, () => {
       console.log(`Backend listening on http://${HOST}:${PORT}`);
       console.log(`API base URL: ${API_BASE_URL}`);

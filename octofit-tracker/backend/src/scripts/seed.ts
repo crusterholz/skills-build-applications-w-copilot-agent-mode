@@ -5,12 +5,11 @@ import { Team } from '../models/team';
 import { Activity } from '../models/activity';
 import { Workout } from '../models/workout';
 import { Leaderboard } from '../models/leaderboard';
-
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/octofit_db';
+import { databaseConfig } from '../config/database';
 
 async function seed() {
   console.log('Seed the octofit_db database with test data');
-  await mongoose.connect(MONGO_URI);
+  await mongoose.connect(databaseConfig.mongoUri, databaseConfig.mongooseOptions);
 
   await Promise.all([
     User.deleteMany({}),
